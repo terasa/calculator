@@ -8,7 +8,7 @@ test:
         files:
           - test/add.js
           - test/sub.js
-    - case $CIRCLE_NODE_INDEX in 0) npm test test/add.js ;; 1) echo npm test test/sub.js ;; esac:
+    - case $CIRCLE_NODE_INDEX in 0) npm test 'test/add.js' ;; 1) echo npm 'test test/sub.js' ;; esac:
         parallel: true
 deployment:
   production:
