@@ -1,1 +1,17 @@
-test
+dependencies:
+  override:
+    - npm install
+test:
+  override:
+    - npm test:
+        parallel: true
+        files:
+          - -- test/add.js
+          - -- test/sub.js
+    - case $CIRCLE_NODE_INDEX in 0) npm test test/add.js ;; 1) echo npm test test/sub.js ;; esac:
+        parallel: true
+deployment:
+  production:
+    branch: master
+    commands:
+      - echo "running deployment script"
