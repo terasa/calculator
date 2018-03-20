@@ -14,5 +14,5 @@ deployment:
   production:
     branch: master
     commands:
-      - git remote
+      - git remote -v
       - echo "running deployment script"
